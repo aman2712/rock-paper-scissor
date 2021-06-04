@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="title">
+        <h1>ROCK</h1>
+        <h1>PAPER</h1>
+        <h1>SCISSORS</h1>
+      </div>
+      <div class="score">
+        <p class="score-title">SCORE</p>
+        <p class="score-score" id="score">0</p>
+      </div>
+    </div>
+    <div class="main" id="main">
+      <div class="triangle">
+        <div class="paper">
+          <img src="./images/icon-paper.svg" onclick="playGame('paper')" />
+        </div>
+        <div class="scissor">
+          <img src="./images/icon-scissor.svg" onclick="playGame('scissor')" />
+        </div>
+        <div class="rock">
+          <img src="./images/icon-rock.svg" onclick="playGame('rock')" />
+        </div>
+      </div>
+    </div>
+    <button class="rules-btn" onclick="openModal()">RULES</button>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>RULES</h2>
+          <img
+            src="./images/icon-close.svg"
+            onclick="closeModal()"
+            class="modal-close"
+          />
+        </div>
+        <img src="./images/image-rules.svg" />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

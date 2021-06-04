@@ -1,0 +1,386 @@
+@import url(https://fonts.google.com/specimen/Barlow+Semi+Condensed);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+body {
+  background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  height: 100vh;
+  overflow: hidden;
+}
+
+.top-bar {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid hsl(217, 16%, 45%);
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.top-bar > .title > h1 {
+  color: white;
+  font-weight: 900;
+}
+
+.top-bar > .score {
+  background-color: white;
+  padding: 25px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.top-bar > .score > .score-title {
+  font-size: 0.7rem;
+  color: hsl(229, 64%, 46%);
+}
+
+.top-bar > .score > .score-score {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: calc(100vh - 193px);
+}
+
+.triangle {
+  background-image: url(./images/bg-triangle.svg);
+  height: 40%;
+  width: 18%;
+  background-repeat: no-repeat;
+  position: relative;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paper,
+.scissor,
+.rock {
+  position: absolute;
+  padding: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.paper > img,
+.scissor > img,
+.rock > img {
+  background-color: white;
+  padding: 25px 30px;
+  border: 10px solid;
+  border-radius: 70px;
+  box-shadow: inset 0 10px rgba(0, 0, 0, 0.342);
+}
+
+.paper {
+  top: -70px;
+  left: -70px;
+  background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  box-shadow: 0 10px rgba(0, 0, 255, 0.849);
+}
+
+.scissor {
+  top: -70px;
+  right: -70px;
+  background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  box-shadow: 0 10px rgba(212, 164, 5, 0.801);
+}
+
+.rock {
+  bottom: -70px;
+  margin: 0 auto;
+  background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  box-shadow: 0 10px rgb(248, 33, 69);
+}
+
+.rules-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 130px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.rules-btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.modal {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  display: none;
+  place-items: center;
+}
+
+.modal > .modal-content {
+  width: 35%;
+  height: auto;
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.733);
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+.modal-content > img {
+  padding: 40px;
+  width: 70%;
+  height: 25rem;
+}
+
+.modal-close {
+  cursor: pointer;
+}
+
+.playing-scissor,
+.playing-rock,
+.playing-paper {
+  position: static !important;
+  padding: 25px;
+}
+
+.playing-scissor > img,
+.playing-rock > img,
+.playing-paper > img {
+  padding: 35px 40px;
+}
+
+.empty-circle {
+  height: 200px;
+  width: 200px;
+  background: rgba(0, 0, 0, 0.342);
+  border-radius: 50%;
+}
+
+.user-picked,
+.house-picked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-picked > p,
+.house-picked > p {
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  color: white;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result > h1 {
+  color: white;
+  font-size: 5rem;
+  margin-bottom: 3rem;
+}
+
+.result > .retry {
+  background-color: white;
+  padding: 20px;
+  width: 160px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-lose {
+  color: rgb(248, 33, 69);
+}
+.button-win {
+  color: hsl(229, 64%, 46%);
+}
+
+.playing-game {
+  width: 50% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+}
+
+.playing-game-results {
+  width: 60% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+}
+
+@media screen and (max-width: 720px) {
+  .modal-content {
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .modal {
+    padding: 0 !important;
+    height: auto !important;
+    width: auto !important;
+  }
+
+  .modal-header {
+    padding: 25px;
+    margin-bottom: 3rem;
+    display: block;
+  }
+
+  .modal-header > img {
+    position: absolute;
+    bottom: 20px;
+    margin: 0 auto;
+    left: 50%;
+  }
+
+  .modal-content > img {
+    width: 100%;
+    height: 25rem;
+  }
+
+  .top-bar > .title > h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .top-bar {
+    width: 95% !important;
+  }
+
+  .top-bar > .score > .score-score {
+    font-size: 2rem !important;
+  }
+  .paper,
+  .scissor,
+  .rock {
+    padding: 5px;
+  }
+  .paper > img,
+  .scissor > img,
+  .rock > img {
+    padding: 10px 15px;
+  }
+
+  .paper {
+    top: 0;
+    left: 5px;
+  }
+
+  .scissor {
+    top: 0;
+    right: 5px;
+  }
+
+  .rock {
+    bottom: 10px;
+  }
+
+  .triangle {
+    width: 100%;
+    height: 70%;
+  }
+
+  .rules-btn {
+    left: 50%;
+    transform: translate(-65px);
+  }
+
+  .playing-game {
+    width: 100% !important;
+    align-items: flex-start !important;
+    margin-top: 2rem;
+    padding: 10px;
+    display: block;
+  }
+
+  .empty-circle {
+    height: 130px;
+    width: 120px;
+  }
+  .user-picked > p,
+  .house-picked > p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .top-bar {
+    margin-top: 20px;
+  }
+
+  .result {
+    margin-top: 1rem;
+  }
+
+  .result > h1 {
+    font-size: 2rem;
+  }
+
+  .mobile-loading {
+    display: block !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  .for-mobile {
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    margin-top: 2rem !important;
+    padding: 20px !important;
+  }
+
+  .playing-game-mobile {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .playing-game {
+    margin-top: 2rem !important;
+    padding: 20px !important;
+  }
+}
